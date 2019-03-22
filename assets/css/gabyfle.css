@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300');
+
+/*
+ *  BOOTSTRAP RESETS
+ *
+ */
+.jumbotron{
+    background-color: rgb(24, 33, 30);
+}
+
+
+body{
+    background-color: #2d3532;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Inconsolata', monospace;
+}
+#big-title{
+    color: #ac80ff;
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+#header{
+    -webkit-transition: color 0.4s ease;
+    -moz-transition: color 0.4s ease;
+    -o-transition: color 0.4s ease;
+    transition: color 0.4s ease;
+}
+
+#stats div{
+    margin-left: 25px;
+}
+#stats h3{
+    display: inline;
+}
+#repos{
+    display: inline;
+}
+.section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#hiddenBracket{
+    visibility: hidden;
+}
