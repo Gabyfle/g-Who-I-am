@@ -5,48 +5,64 @@
  */
 
 $github_user = "Gabyfle";
+$github_token = "";
 
-$get_options  = [
-    'http' => [
-            'method' => 'GET',
-            'header' => [
-                    'User-Agent: Gabyfle'
-            ]
-    ]
-];
-$context  = stream_context_create($get_options);
+/**
+ * Checking if datas hasn't already been fetched
+ */
+$datas = file_get_contents("datas/github.txt");
+$decoded = json_decode($datas, true);
+if ($decoded["lastFetched"] - time() <= 3600) {
+    $github_stats = [
+        "lastFetched" => $decoded["lastFetched"],
+        "githubUsername"    => $decoded["githubUsername"],
+        "repos" => $decoded["repos"],
+        "languages" => $decoded["languages"]
+    ];
+} else {
+    $get_options  = [
+        'http' => [
+                'method' => 'GET',
+                'header' => [
+                        'User-Agent: github-stats (Made by Gabyfle)'
+                ]
+        ]
+    ];
+    $context  = stream_context_create($get_options);
 
-$jsonurl = "https://api.github.com/users/" . $github_user . "/repos";
-$json = file_get_contents($jsonurl, false, $context);
-$repositeries = json_decode($json, true);
-
-$totalLines = 0;
-$addedLines = 0;
-$deletedLines = 0;
-
-foreach ($repositeries as $id => $value) {
-    $repo_name = $value["name"];
-    $jsonurl = "https://api.github.com/repos/" . $github_user . "/" . $repo_name . "/commits";    
+    /* Getting repositery number */
+    $jsonurl = "https://api.github.com/users/" . $github_user . "?access_token=" . $github_token;
     $json = file_get_contents($jsonurl, false, $context);
-    $commits = json_decode($json, true);
+    $user = json_decode($json, true);
 
-    foreach ($commits as $id => $value) {
-        $sha = $value["sha"];
-        $jsonurl = "https://api.github.com/repos/" . $github_user . "/" . $repo_name . "/commits/" . $sha;
+    $reposNumber = $user["public_repos"];
+
+    /* Getting languages statistics */
+    $languages = []; /* Languages stats table */
+
+    $jsonurl = "https://api.github.com/users/" . $github_user . "/repos?access_token=" . $github_token;
+    $json = file_get_contents($jsonurl, false, $context);
+    $repositeries = json_decode($json, true);
+
+    foreach ($repositeries as $key => $value) {
+        $jsonurl = $value["languages_url"] . "?access_token=" . $github_token;
         $json = file_get_contents($jsonurl, false, $context);
-        $datas = json_decode($json, true);
-        /* Adding lines to vars */
-        $totalLines = $totalLines + $datas["stats"]["total"];
-        $addedLines = $addedLines + $datas["stats"]["additions"];
-        $deletedLines = $deletedLines + $datas["stats"]["deletions"];
+        $stats = json_decode($json, true);
+        foreach ($stats as $key => $value) {
+            $languages[$key] = $language[$key] + $value;
+        }
     }
+
+    $github_stats = [
+        "lastFetched" => time(),
+        "githubUsername" => $github_user,
+        "repos" => $reposNumber,
+        "languages" => $languages
+    ];
+
+    $flow = fopen("datas/github.txt", "w");
+    $status = fwrite($flow, json_encode($github_stats));
 }
 
-$github_stats = [
-    "githubUsername" => $github_user,
-    "totalLines" => $totalLines,
-    "addedLines" => $addedLines,
-    "deletedLines" => $deletedLines
-];
 header('Content-Type: application/json');
 echo json_encode($github_stats, JSON_PRETTY_PRINT);
