@@ -12,7 +12,7 @@ $github_token = "";
  */
 $datas = file_get_contents("datas/github.txt");
 $decoded = json_decode($datas, true);
-if ($decoded["lastFetched"] - time() <= 3600) {
+if (time() - $decoded["lastFetched"] <= 3600) {
     $github_stats = [
         "lastFetched" => $decoded["lastFetched"],
         "githubUsername"    => $decoded["githubUsername"],

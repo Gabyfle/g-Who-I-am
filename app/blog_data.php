@@ -3,9 +3,21 @@
  * Uses posts.class.php to get posts datas
  * @author Gabriel Santamaria <gaby.santamaria@outlook.fr>
  */
-require('class/posts.class.php');
+require('classes/posts.class.php');
 require('../config.php');
 $posts = new Posts($ghost, $gname, $guser, $gpass);
+
+/**
+ * printJson($toPrint)
+ * Print $toPrint into JSON format, with json header
+ */
+function printJson($toPrint)
+{
+    /* Printing this in JSON format, to allow JS & PHP scripts to parse easily this data */
+    header('Content-Type: application/json');
+    echo json_encode($toPrint, JSON_PRETTY_PRINT);
+}
+
 /* Getting posts data */
 if(!empty($_GET) && isset($_GET['getposts']))
 {
@@ -29,7 +41,12 @@ if(!empty($_GET) && isset($_GET['getposts']))
             'commentscount' => $comments
         ];
     }
-    /* Printing this in JSON format, to allow JS & PHP scripts to parse easily this data */
-    header('Content-Type: application/json');
-    echo json_encode($datas, JSON_PRETTY_PRINT);
+    printJson($datas);
+}
+
+/* Getting comments data */
+if(!empty($_GET) && isset($_GET['getcomments']) && is_int($_GET['postid']))
+{
+    $comments = $posts->getPostComments($_GET['postid']);
+    printJson($comments);
 }

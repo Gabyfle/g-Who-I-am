@@ -9,6 +9,19 @@
 	</head>
 	<body>
 		<div id="header" class="jumbotron jumbotron-fluid">
+			<div id="connect">
+				<div class="container float-right">
+					<span id="signedas">Signed as</span>
+					<div class="btn-group" role="group">
+						<button id="connectBtn" type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Guest
+						</button>
+						<div class="dropdown-menu" aria-labelledby="connectBtn">
+							<a class="dropdown-item" href="#">Connect</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="container">
 				<h1 id="big-title" class="display-4">Gabriel Santamaria</h1>
 				<p id="description" class="lead">Le site internet d'un passionné <small>(un de plus)</small> de pixels, de hiéroglyphes, et de bulles d'air</p>
@@ -41,8 +54,33 @@
 				<h2>Derniers articles</h2>
 				<p>Liste des derniers articles publiés, dans l'ordre décroissant.</p>
 				<div class="container">
-					<p>Aucun article à afficher.</p>
+					<div id="1" class="article">
+						<h4><a href="">Les bases de données avec GLua</a></h4>
+						<p>19 commentaires <span class="badge badge-warning">SQL</span> <span class="badge badge-primary">GLua</span></p>
+					</div>
+					<div id="2" class="article">
+						<h4><a href="">Récupérer des informations depuis l'API Steam en PHP</a></h4>
+						<p>7 commentaires <span class="badge badge-info">PHP</span></p>
+					</div>
+					<div id="3" class="article">
+						<h4><a href="">Allons-nous survivre sur Terre ?</a></h4>
+						<p>54 commentaires</p>
+					</div>
+					<div id="4" class="article">
+						<h4><a href="">Projet : serveur web maison avec Raspberry</a></h4>
+						<p>4 commentaires</p>
+					</div>
 				</div>
+				<div class="row">
+					<div class="col text-center">
+						<button type="button" class="btn btn-primary" href="#">Charger plus</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer-bottom">
+			<div class="container">
+				<p>&copy; Gabriel Santamaria - 2019</p>
 			</div>
 		</div>
 		<script src="assets/js/jquery-3.3.1.min.js"></script>

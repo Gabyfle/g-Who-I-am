@@ -11,7 +11,7 @@ $steam_id = "76561198127516196";
  */
 $datas = file_get_contents("datas/steam.txt");
 $decoded = json_decode($datas, true);
-if ($decoded["lastFetched"] - time() <= 1800) {
+if (time() - $decoded["lastFetched"] <= 1800) {
     $steam_stats = [
         "lastFetched" => $decoded["lastFetched"],
         "steamid"    => $decoded["steamid"],

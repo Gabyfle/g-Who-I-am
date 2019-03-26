@@ -16,8 +16,8 @@ $(document).ready(function() {
      */
     function getUserData(user)
     {
-        var steamUrl = 'includes/steam_stats.php';
-        var githubUrl = 'includes/github_stats.php';
+        var steamUrl = 'app/steam_stats.php';
+        var githubUrl = 'app/github_stats.php';
         jQuery.getJSON(steamUrl, function(json){
             var ownedGames = json.totalGames;
             var totalHours = json.totalHours;
@@ -29,6 +29,7 @@ $(document).ready(function() {
             var languages = json.languages;
             var langSum = 1; /* If we put this to 0, it's possible that we divide by 0... */
             var percentages = Array();
+            percentages["Autre"] = 0;
             /* First loop to get total value */
             for (const key in languages) {
                 if (languages.hasOwnProperty(key)) {
@@ -38,24 +39,26 @@ $(document).ready(function() {
             /* Second loop to get percentages */
             for (const key in languages) {
                 if (languages.hasOwnProperty(key)) {
-                    percentages[key] = Math.round((100 * languages[key]) / langSum);
+                    percentage = Math.round((100 * languages[key]) / langSum);
+                    if(percentage < 9){
+                        percentages["Autre"] += percentage;
+                    } else {
+                        percentages[key] = Math.round((100 * languages[key]) / langSum);
+                    }
                 }
             }
             $("#repos").html(reposNumber + "<span style=\"color:#FFF;\">,</span>");
             /* Displaying percentages */
             var html = "<span style=\"color:#FFF;\">[</span>"; /* html that will be displayed */
-            var i = 0;
             for (const key in percentages) {
-                if (i > 2){ break; }
                 if (percentages.hasOwnProperty(key)) {
                     html = html + 
-                           " <span style=\"color:#e7db74;\">\"" + 
+                           " <div class=\"languages\"><span id=\"marge\"/><span style=\"color:#e7db74;\">\"" + 
                            key + 
                            "\"</span> <span style=\"color: #f92472 !important;\">=></span> " +
                           percentages[key] +
-                          "<span style=\"color:#FFF;\">,</span>";
+                          "<span style=\"color:#FFF;\">,</span></div>";
                 }
-                i++;
             }
             html = html + "<span style=\"color:#FFF;\"> ],</span>";
             $("#percentages").html(html);

@@ -16,6 +16,20 @@ body{
 h1, h2, h3, h4, h5, h6{
     font-family: 'Inconsolata', monospace;
 }
+#connect{
+    background-color: rgb(21, 29, 26);
+    position: absolute;
+    top: 0px;
+
+    width: 100%;
+}
+#connect .btn-group{
+    padding: 5px;
+    text-align: right;
+}
+#signedas {
+    color: rgb(110, 110, 110) !important;
+}
 #big-title{
     color: #ac80ff;
 }
@@ -41,6 +55,14 @@ p{
 #stats h3{
     display: inline;
 }
+#marge{
+    margin: 1em;
+}
+#languages{
+    line-height: 15px;
+    margin: 0px;
+    padding: 0px;
+}
 #repos{
     display: inline;
 }
@@ -57,4 +79,19 @@ p{
     font-family: 'Inconsolata', monospace;
     font-size: 30px;
     color: #ac80ff; 
+}
+.social-link{
+    font-size: 20px;
+    margin-left: 35px;
+    line-height: 13px;
+}
+
+#footer-bottom{
+    color: #FFFFFF;
+    background-color: rgb(21, 29, 26);
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+#footer-bottom p{
+    font-family: 'Inconsolata', monospace;
 }
