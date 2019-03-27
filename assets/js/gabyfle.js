@@ -64,6 +64,16 @@ $(document).ready(function() {
             $("#percentages").html(html);
         });
     }
+    /**
+     * headerAnimate(void)
+     * Animate the header, by throwing images like pixels, bubbles or maths/physics related symbols
+     */
+    function headerAnimate()
+    {
 
+    }
+
+    /* Launching data requests */
     getUserData("Gabyfle");
+    /* Animating header */
 });

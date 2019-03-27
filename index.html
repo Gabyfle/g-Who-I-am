@@ -5,12 +5,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/fonts/fontawesome/css/all.min.css" rel="stylesheet">
 		<link href="assets/css/gabyfle.css" rel="stylesheet">
 	</head>
 	<body>
 		<div id="header" class="jumbotron jumbotron-fluid">
 			<div id="connect">
-				<div class="container float-right">
+				<div class="container">
 					<span id="signedas">Signed as</span>
 					<div class="btn-group" role="group">
 						<button id="connectBtn" type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,11 +21,43 @@
 							<a class="dropdown-item" href="#">Connect</a>
 						</div>
 					</div>
+					<div class="btn-group float-right" role="group">
+						<button id="moreBtn" type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							More
+						</button>
+						<div class="dropdown-menu" aria-labelledby="moreBtn">
+							<a class="dropdown-item" href="#">Code minifier (coming soon)</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="container">
-				<h1 id="big-title" class="display-4">Gabriel Santamaria</h1>
-				<p id="description" class="lead">Le site internet d'un passionné <small>(un de plus)</small> de pixels, de hiéroglyphes, et de bulles d'air</p>
+				<div id="header-animate">
+					<h1 id="big-title" class="display-4">Gabriel Santamaria</h1>
+					<p id="description" class="lead">Le site internet d'un passionné <small>(un de plus)</small> de pixels, de hiéroglyphes, et de bulles d'air</p>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="social-links">
+							<a href="https://github.com/Gabyfle" target="_blank">
+								<p>Github</p>
+								<i class="fab fa-github"></i>
+							</a>
+						</div>
+						<div class="social-links">
+							<a href="https://steamcommunity.com/id/EpicGaby" target="_blank">
+								<p>Steam</p>
+								<i class="fab fa-steam"></i>
+							</a>
+						</div>
+						<div class="social-links">
+							<a href="https://twitter.com/gabyfle" target="_blank">
+								<p>Twitter</p>
+								<i class="fab fa-twitter"></i>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="container">
