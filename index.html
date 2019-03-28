@@ -4,21 +4,19 @@
 		<title>Gabyfle - Développeur autodidacte sauvage</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="assets/fonts/fontawesome/css/all.min.css" rel="stylesheet">
+		<!-- Custom CSS import -->
 		<link href="assets/css/gabyfle.css" rel="stylesheet">
 	</head>
 	<body>
 		<div id="header" class="jumbotron jumbotron-fluid">
 			<div id="connect">
 				<div class="container">
-					<span id="signedas">Signed as</span>
 					<div class="btn-group" role="group">
 						<button id="connectBtn" type="button" class="btn btn-outline-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Guest
+							Invité
 						</button>
 						<div class="dropdown-menu" aria-labelledby="connectBtn">
-							<a class="dropdown-item" href="#">Connect</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#connectionModal">Connexion</a>
 						</div>
 					</div>
 					<div class="btn-group float-right" role="group">
@@ -116,9 +114,35 @@
 				<p>&copy; Gabriel Santamaria - 2019</p>
 			</div>
 		</div>
+		<!-- Connection bootstrap modal -->
+		<div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModal" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="connectionModalLabel">Connexion</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<h6>Se connecter avec :</h6>
+							<div class="d-flex justify-content-center btn-group" role="group" aria-label="Providers">
+								<button type="button" class="btn btn-secondary btn-steam"><i class="fab fa-steam"></i> Steam</button>
+								<button type="button" class="btn btn-primary btn-google"><i class="fab fa-google"></i> Google</button>
+								<button type="button" class="btn btn-secondary btn-github"><i class="fab fa-github"></i> Github</button>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i> Fermer</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- JQuery, Popper and Bootstrap JS imports -->
 		<script src="assets/js/jquery-3.3.1.min.js"></script>
 		<script src="assets/js/popper.min.js"></script>
 		<script src="assets/js/bootstrap.min.js"></script>
+		<!-- Custom JS import -->
 		<script src="assets/js/gabyfle.js"></script>
 	</body>
 </html>

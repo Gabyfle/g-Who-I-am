@@ -1,8 +1,55 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300');
-
 /*
- *  BOOTSTRAP RESETS
+ * gabyfle.css
+ * Copyright 2019 Gabriel Santamaria <gaby.santamaria@outlook.fr>
  *
+ *  CONTENTS TABLE (CTRL + F to directly go to these chapters)
+ *      1. ==. IMPORTS .==
+*       2. ==. GENERAL STYLESHEET .==
+ *      3. ==. BOOTSTRAP RESETS .==
+ *      4. ==. HEADER STYLESHEET .==
+ *      5. ==. STATISTICS STYLESHEET .==
+ *      6. ==. ARTICLES STYLESHEET .==
+ *      7. ==. KEYFRAMES .==
+ *
+ */
+
+/**
+ *  ==. IMPORTS .==
+ *  Description : importing external stylesheets and frameworks
+ */
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300');
+/* Bootstrap v4.3.1 */
+@import url('bootstrap.min.css');
+/* Font Awesome Free 5.8.1 */
+@import url('../fonts/fontawesome/css/all.min.css');
+
+
+/**
+ *  ==. GENERAL STYLESHEET .==
+ *  Description : resetting some basics styles
+ */
+body{
+    background-color: #FFFFFF;
+}
+h1, h2, h3, h4, h5, h6{ /* Every title have to be displayed in this font */
+    font-family: 'Inconsolata', monospace;
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+#marge{ /* For tabulations */
+    margin: 1em;
+}
+.section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+/**
+ *  ==. BOOTSTRAP RESETS .==
+ *  Description : resetting Bootstrap components to proper styles, to feet with the design.
  */
 .jumbotron{
     background-color: rgb(24, 33, 30);
@@ -12,14 +59,11 @@
 }
 
 
-body{
-    background-color: #FFFFFF;
-    z-index: 2;
-}
-
-h1, h2, h3, h4, h5, h6{
-    font-family: 'Inconsolata', monospace;
-}
+/**
+ *  ==. HEADER STYLESHEET .==
+ *  Description : defining stylesheets for the header
+ */
+/* Styling the account-related navigation bar, on top of header */
 #connect{
     background-color: rgb(21, 29, 26);
     position: absolute;
@@ -31,8 +75,13 @@ h1, h2, h3, h4, h5, h6{
     padding: 5px;
     text-align: right;
 }
-#signedas {
+#signedAs {
     color: rgb(110, 110, 110) !important;
+}
+/* Styling big-header with name */
+#header{
+    color: #FFFFFF;
+    padding-bottom: 0px;
 }
 #big-title{
     color: #ac80ff;
@@ -40,64 +89,7 @@ h1, h2, h3, h4, h5, h6{
 #header-animate{
     margin-bottom: 40px;
 }
-p{
-    font-family: 'Open Sans', sans-serif;
-}
-
-#header{
-    color: #FFFFFF;
-    padding-bottom: 0px;
-}
-#stats{
-    background-color: #2d3532;
-    padding: 15px;
-    color: #FFFFFF;
-    border-radius: 5px;
-}
-#stats p{
-    font-family: 'Inconsolata', monospace;
-}
-#stats div{
-    margin-left: 25px;
-}
-#stats h3{
-    display: inline;
-}
-#marge{
-    margin: 1em;
-}
-#languages{
-    line-height: 15px;
-    margin: 0px;
-    padding: 0px;
-}
-#repos{
-    display: inline;
-}
-.section{
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-#hiddenBracket{
-    visibility: hidden;
-}
-
-.number{
-    display: inline;
-    font-family: 'Inconsolata', monospace;
-    font-size: 30px;
-    color: #ac80ff; 
-}
-#footer-bottom{
-    color: #FFFFFF;
-    background-color: rgb(21, 29, 26);
-    padding-top: 15px;
-    padding-bottom: 10px;
-}
-#footer-bottom p{
-    font-family: 'Inconsolata', monospace;
-}
-
+/* Social links stylesheets */
 .social-links{
     font-size: 15px;
 
@@ -126,13 +118,70 @@ p{
 
     opacity: 0.3;
 }
-
 .social-links:hover{
     animation-name: showing-up;
     animation-duration: 0.75s;
     animation-fill-mode: forwards;
 }
+/* Connect buttons stylesheets */
+.btn-github{
+    background-color: #24292e;
+    border-color: #24292e;
+}
+.btn-google{
+    background-color: #ea4335;
+    border-color: #ea4335;
+}
+.btn-steam{
+    background-color: #171a21;
+    border-color: #171a21;
+}
 
+/**
+ *  ==. STATISTICS STYLESHEET .==
+ *  Description : defining stylesheets for statistics display
+ */
+#stats{
+    background-color: #2d3532;
+    padding: 15px;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+#stats p{
+    font-family: 'Inconsolata', monospace;
+}
+#stats div{
+    margin-left: 25px;
+}
+#stats h3{
+    display: inline;
+}
+#languages{
+    line-height: 15px;
+    margin: 0px;
+    padding: 0px;
+}
+.number{ /* Every numbers have to be displayed in #ac80ff */
+    display: inline;
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+    color: #ac80ff; 
+}
+#footer-bottom{
+    color: #FFFFFF;
+    background-color: rgb(21, 29, 26);
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+#footer-bottom p{
+    font-family: 'Inconsolata', monospace;
+}
+
+
+/**
+ *  ==. KEYFRAMES .==
+ *  Description : defining some CSS animations and transitions to be used
+ */
 @keyframes showing-up {
     from {
         -webkit-transform: translate(0px, 0px);
