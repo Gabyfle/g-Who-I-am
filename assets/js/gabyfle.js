@@ -40,7 +40,7 @@ $(document).ready(function() {
             for (const key in languages) {
                 if (languages.hasOwnProperty(key)) {
                     percentage = Math.round((100 * languages[key]) / langSum);
-                    if(percentage < 9){
+                    if(percentage < 10){
                         percentages["Autre"] += percentage;
                     } else {
                         percentages[key] = Math.round((100 * languages[key]) / langSum);

@@ -117,8 +117,6 @@ p{
 /* Styling the account-related navigation bar, on top of header */
 #connect{
     background-color: var(--background-navbar);
-    position: absolute;
-    top: 0px;
 
     width: 100%;
 }
@@ -237,12 +235,26 @@ p{
  *  ==. RESPONSIVE .==
  *  Description : defining some CSS media queries, for different devices
  */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 576px) {
+    #big-title{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 576px) {
+    #big-title{
+        font-size: 25px;
+    }
+}
+@media screen and (min-width: 768px) {
     #big-title{
         font-size: 40px;
     }
 }
-
+@media screen and (min-width: 992px) {
+    #big-title{
+        font-size: 50px;
+    }
+}
 /**
  *  ==. KEYFRAMES .==
  *  Description : defining some CSS animations and transitions to be used
