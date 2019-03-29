@@ -9,8 +9,8 @@
  *      4. ==. HEADER STYLESHEET .==
  *      5. ==. STATISTICS STYLESHEET .==
  *      6. ==. ARTICLES STYLESHEET .==
- *      7. ==. KEYFRAMES .==
- *
+ *      7. ==. RESPONSIVE .==
+ *      8. ==. KEYFRAMES .==
  */
 
 /**
@@ -56,6 +56,24 @@ p{
 }
 .dropdown-item{
     font-family: 'Inconsolata', monospace;
+}
+.btn-outline-warning{
+    color: #ffc107 !important;
+}
+.btn-outline-warning:hover{
+    color: #151d1a !important;
+}
+.btn-outline-warning:focus{
+    color: #151d1a !important;
+}
+.btn-outline-info{
+    color: #17a2b8 !important;
+}
+.btn-outline-info:hover{
+    color: #FFFFFF !important;
+}
+.btn-outline-info:focus{
+    color: #FFFFFF !important;
 }
 
 
@@ -151,7 +169,7 @@ p{
     font-family: 'Inconsolata', monospace;
 }
 #stats div{
-    margin-left: 25px;
+    margin-left: 15px;
 }
 #stats h3{
     display: inline;
@@ -176,6 +194,13 @@ p{
 #footer-bottom p{
     font-family: 'Inconsolata', monospace;
 }
+
+
+/**
+ *  ==. RESPONSIVE .==
+ *  Description : defining some CSS media queries, for different devices
+ */
+
 
 
 /**

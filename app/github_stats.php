@@ -49,7 +49,7 @@ if (time() - $decoded["lastFetched"] <=  (5 * 3600)) {
         $json = file_get_contents($jsonurl, false, $context);
         $stats = json_decode($json, true);
         foreach ($stats as $key => $value) {
-            $languages[$key] = $language[$key] + $value;
+            $languages[$key] = $languages[$key] + $value;
         }
     }
 

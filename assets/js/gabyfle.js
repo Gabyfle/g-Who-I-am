@@ -70,7 +70,7 @@ $(document).ready(function() {
      */
     function headerAnimate()
     {
-
+        
     }
 
     /* Launching data requests */
