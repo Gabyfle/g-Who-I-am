@@ -4,11 +4,11 @@ $(document).ready(function() {
      * Principally text and colors
      */
     $("#header").hover(function(){
-        $("#big-title").html("$Gabriel_Santamaria <span style=\"color: #f92472 !important;\">=</span>").css("color","#FFFFFF");
-        $("#description").html("\"Passionné de pixels, de hiéroglyphes, et de bulles d'air\"<span style=\"color: #FFFFFF !important;\">;</span>").css("color","#e7db74").css("font-family", "Inconsolata");
+        $("#big-title").html("$Gabriel_Santamaria <span class=\"code-red\">=</span>").addClass("code-white");
+        $("#description").html("<span class=\"code-yellow\">\"Passionné de pixels, de hiéroglyphes, et de bulles d'air\"</span><span class=\"code-white\">;</span>").css("font-family", "Inconsolata");
     }, function() {
-        $("#big-title").text("Gabriel Santamaria").css("color","#ac80ff");
-        $("#description").html("Le site internet d'un passionné <small>(un de plus)</small> de pixels, de hiéroglyphes, et de bulles d'air").css("color","#FFFFFF").css("font-family", "Open Sans");
+        $("#big-title").text("Gabriel Santamaria").removeClass("code-white");
+        $("#description").html("Le site internet d'un passionné <small>(un de plus)</small> de pixels, de hiéroglyphes, et de bulles d'air").css("font-family", "Open Sans");
     });
 
     /**
@@ -47,20 +47,20 @@ $(document).ready(function() {
                     }
                 }
             }
-            $("#repos").html(reposNumber + "<span style=\"color:#FFF;\">,</span>");
+            $("#repos").html(reposNumber + "<span class=\"code-white\">,</span>");
             /* Displaying percentages */
-            var html = "<span style=\"color:#FFF;\">[</span>"; /* html that will be displayed */
+            var html = "<span class=\"code-white\">[</span>"; /* html that will be displayed */
             for (const key in percentages) {
                 if (percentages.hasOwnProperty(key)) {
                     html = html + 
-                           " <div class=\"languages\"><span id=\"marge\"/><span style=\"color:#e7db74;\">\"" + 
+                           " <div class=\"languages\"><span id=\"marge\"/><span class=\"code-yellow\">\"" + 
                            key + 
-                           "\"</span> <span style=\"color: #f92472 !important;\">=></span> " +
+                           "\"</span> <span class=\"code-red\">=&gt;</span> " +
                           percentages[key] +
-                          "<span style=\"color:#FFF;\">,</span></div>";
+                          "<span class=\"code-white\">,</span></div>";
                 }
             }
-            html = html + "<span style=\"color:#FFF;\"> ],</span>";
+            html = html + "<span class=\"code-white\"> ],</span>";
             $("#percentages").html(html);
         });
     }

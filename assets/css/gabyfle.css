@@ -4,13 +4,14 @@
  *
  *  CONTENTS TABLE (CTRL + F to directly go to these chapters)
  *      1. ==. IMPORTS .==
-*       2. ==. GENERAL STYLESHEET .==
- *      3. ==. BOOTSTRAP RESETS .==
- *      4. ==. HEADER STYLESHEET .==
- *      5. ==. STATISTICS STYLESHEET .==
- *      6. ==. ARTICLES STYLESHEET .==
- *      7. ==. RESPONSIVE .==
- *      8. ==. KEYFRAMES .==
+ *      2. ==. COLORS DEFINITION .==
+ *      3. ==. GENERAL STYLESHEET .==
+ *      4. ==. BOOTSTRAP RESETS .==
+ *      5. ==. HEADER STYLESHEET .==
+ *      6. ==. STATISTICS STYLESHEET .==
+ *      7. ==. ARTICLES STYLESHEET .==
+ *      8. ==. RESPONSIVE .==
+ *      9. ==. KEYFRAMES .==
  */
 
 /**
@@ -24,13 +25,33 @@
 /* Font Awesome Free 5.8.1 */
 @import url('../fonts/fontawesome/css/all.min.css');
 
+/**
+ *  ==. COLORS DEFINITION .==
+ *  Description : defining colors used in this website
+ */
+:root {
+    /* Backgrounds */
+    --background-navbar: rgb(21, 29, 26);
+    --background-header: rgb(24, 33, 30);
+    --background-body: rgb(255, 255, 255);
+    --background-footer: rgb(21, 29, 26);
+    /* Text colors */
+    --color-header: rgb(255, 255, 255);
+    --color-text: rgb(33, 37, 41);
+    /* Code colors */
+    --color-code-purple: rgb(172, 128, 255);
+    --color-code-yellow: rgb(231, 219, 116);
+    --color-code-red: rgb(249, 36, 114);
+    --color-code-white: rgb(255, 255, 255);
+}
+
 
 /**
  *  ==. GENERAL STYLESHEET .==
  *  Description : resetting some basics styles
  */
 body{
-    background-color: #FFFFFF;
+    background-color: var(--background-body);
 }
 h1, h2, h3, h4, h5, h6{ /* Every title have to be displayed in this font */
     font-family: 'Inconsolata', monospace;
@@ -45,6 +66,11 @@ p{
     margin-top: 50px;
     margin-bottom: 50px;
 }
+/* Javascript helpers */
+.code-purple{ color: var(--color-code-purple) !important; }
+.code-yellow{ color: var(--color-code-yellow) !important; }
+.code-red{ color: var(--color-code-red) !important; }
+.code-white{ color: var(--color-code-white) !important; }
 
 
 /**
@@ -52,7 +78,7 @@ p{
  *  Description : resetting Bootstrap components to proper styles, to feet with the design.
  */
 .jumbotron{
-    background-color: rgb(24, 33, 30);
+    background-color: var(--background-header);
 }
 .dropdown-item{
     font-family: 'Inconsolata', monospace;
@@ -66,6 +92,9 @@ p{
 .btn-outline-warning:focus{
     color: #151d1a !important;
 }
+.btn-outline-warning:active{
+    color: #151d1a !important;
+}
 .btn-outline-info{
     color: #17a2b8 !important;
 }
@@ -75,6 +104,10 @@ p{
 .btn-outline-info:focus{
     color: #FFFFFF !important;
 }
+.btn-outline-info:active{
+    color: #FFFFFF !important;
+}
+
 
 
 /**
@@ -83,7 +116,7 @@ p{
  */
 /* Styling the account-related navigation bar, on top of header */
 #connect{
-    background-color: rgb(21, 29, 26);
+    background-color: var(--background-navbar);
     position: absolute;
     top: 0px;
 
@@ -93,16 +126,13 @@ p{
     padding: 5px;
     text-align: right;
 }
-#signedAs {
-    color: rgb(110, 110, 110) !important;
-}
 /* Styling big-header with name */
 #header{
-    color: #FFFFFF;
+    color: var(--color-header);
     padding-bottom: 0px;
 }
 #big-title{
-    color: #ac80ff;
+    color: var(--color-code-purple);
 }
 #header-animate{
     margin-bottom: 40px;
@@ -121,7 +151,7 @@ p{
 }
 .social-links a{
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--color-header);
 }
 .social-links i{
     font-size: 45px;
@@ -132,7 +162,7 @@ p{
 }
 .social-links p{
     font-family: 'Inconsolata', monospace;
-    color: rgb(255, 255, 255);
+    color: var(--color-header);
 
     opacity: 0.3;
 }
@@ -162,7 +192,7 @@ p{
 #stats{
     background-color: #2d3532;
     padding: 15px;
-    color: #FFFFFF;
+    color: var(--color-code-white);
     border-radius: 5px;
 }
 #stats p{
@@ -173,6 +203,13 @@ p{
 }
 #stats h3{
     display: inline;
+}
+.stats-text{
+    font-size: 1.75rem;
+}
+.stats-text *{
+    display: inline;
+    font-family: 'Inconsolata', monospace;
 }
 #languages{
     line-height: 15px;
@@ -187,7 +224,7 @@ p{
 }
 #footer-bottom{
     color: #FFFFFF;
-    background-color: rgb(21, 29, 26);
+    background-color: var(--background-footer);
     padding-top: 15px;
     padding-bottom: 10px;
 }
@@ -200,8 +237,11 @@ p{
  *  ==. RESPONSIVE .==
  *  Description : defining some CSS media queries, for different devices
  */
-
-
+@media screen and (max-width: 768px) {
+    #big-title{
+        font-size: 40px;
+    }
+}
 
 /**
  *  ==. KEYFRAMES .==

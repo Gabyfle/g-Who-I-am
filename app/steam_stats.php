@@ -19,7 +19,7 @@ if (time() - $decoded["lastFetched"] <= 1800) {
         "totalHours" => $decoded["totalHours"]
     ];
 } else {
-    $jsonurl = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" . $steam_api . "&steamid=" . $steam_id . "&format=json";
+    $jsonurl = "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=" . $steam_api . "&steamid=" . $steam_id . "&include_played_free_games=1&format=json";
     $json = file_get_contents($jsonurl);
     $decoded = json_decode($json, true);
     
@@ -31,7 +31,7 @@ if (time() - $decoded["lastFetched"] <= 1800) {
     foreach ($decoded["response"]["games"] as $key => $value) {
         $totalHours = $totalHours + $value["playtime_forever"];
     }
-
+    
     $steam_stats = [
         "lastFetched" => time(),
         "steamid"    => $steam_id,
