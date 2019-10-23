@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Gabyfle\\": "src"
+        }
+    },
+    "require": {
+        "gabyfle/gsteam-auth": "@dev",
+        "twig/twig": "^2.0",
+        "ext-pdo": "*"
+    }
+}

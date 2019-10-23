@@ -1,0 +1,76 @@
+{
+    "dashboard": {
+        "users": {
+            "title": "Users",
+            "description": "Manages users right here !",
+            "parts": {
+                "admins": {
+                    "title": "Administrators",
+                    "description": "Here's the list of every <span class=\"badge badge-danger\">Admin</span> (a.k.a guys who can access to this page) you configured in <code>config.php</code>",
+                    "elements": {
+                        "steam-buttons": "Steam Profile"
+                    }
+                }
+            }
+        },
+        "configuration": {
+            "title": "Configuration",
+            "description": "Set up everything related to APIs keys, servers and groups !",
+            "parts": {
+                "steam": {
+                    "title": "Steam",
+                    "description": "Configure which groups the user have to join!",
+                    "elements": {
+                        "add-card-title": "Groups to join",
+                        "add-card-description": "This is the list of groups which players have to join to complete this task",
+                        "add-button": "Add a group"
+                    }
+                },
+                "discord": {
+                    "title": "Discord",
+                    "description": "Configure right here everything related to Discord!",
+                    "elements": {
+                        "api-key": "Discord API key",
+                        "add-card-title": "Servers to join",
+                        "add-card-description": "This is the list of servers which players have to join to complete this task",
+                        "add-button": "Add a server"
+                    }
+                },
+                "twitter": {
+                    "title": "Twitter",
+                    "description": "Configure right here everything related to Twitter!",
+                    "elements": {
+                        "api-key": "Twitter API key",
+                        "add-card-title": "Accounts to follow",
+                        "add-card-description": "This is the list of accounts which players have to join to complete this task",
+                        "add-button": "Add an account"
+                    }
+                },
+                "instagram": {
+                    "title": "Instagram",
+                    "description": "Configure right here everything related to Instagram!",
+                    "elements": {
+                        "api-key": "Instagram API key",
+                        "add-card-title": "Accounts to follow",
+                        "add-card-description": "This is the list of accounts which players have to join to complete this task",
+                        "add-button": "Add an account"
+                    }
+                }
+            }
+        }
+    },
+    "pages": {
+        "error": {
+            "explaination": "We can't find the page you requested. You can return to the <a href=\"/home\">Home page</a>"
+        },
+        "home": {
+            "text-button": "Log in through Steam services"
+        },
+        "connect": {
+            "welcome-text": "Welcome, ",  
+            "explaination": "Get unique reward by doing some actions !",
+            "title-accounts": "Connected accounts",
+            "account": "Account"
+        }
+    }
+}
