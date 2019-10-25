@@ -30,7 +30,6 @@ class Template
     private $templateName;
 
     const PAGES = [
-        'connect.twig',
         'error.twig',
         'home.twig'
     ];
@@ -56,8 +55,8 @@ class Template
     private function isValid() :bool
     {
         if (
-            !is_dir(DOCUMENT_ROOT . '/templates/' . $this->templateName) ||
-            array_diff(self::PAGES, scandir(DOCUMENT_ROOT . '/templates/' . $this->templateName))
+            !is_dir(DOCUMENT_ROOT . 'templates/' . $this->templateName) ||
+            array_diff(self::PAGES, scandir(DOCUMENT_ROOT . 'templates/' . $this->templateName))
         ) { // we could just return the things in the if statement but for long expressions like this, I do not like this
             return false;
         }
@@ -72,7 +71,7 @@ class Template
      */
     private function isValidPage(string $pageName) :bool
     {
-        return is_file(DOCUMENT_ROOT . '/templates/' . $this->templateName . '/' . $pageName);
+        return is_file(DOCUMENT_ROOT . 'templates/' . $this->templateName . '/' . $pageName);
     }
 
     /**
@@ -101,9 +100,8 @@ class Template
     public function buildTemplate(string $pageName, array $parameters, bool $isAdminTemplate = false)
     {
         if ($this->isValid() || $isAdminTemplate) {
-            $loader = new FilesystemLoader(DOCUMENT_ROOT . '/templates/' . $this->templateName);
+            $loader = new FilesystemLoader(DOCUMENT_ROOT . 'templates/' . $this->templateName);
             $twig = new Environment($loader, [
-                'cache' => DOCUMENT_ROOT . '/cache',
             ]);
             if (!$this->isValidPage($pageName . '.twig')) {
                 echo 'Page ' . $pageName . ' does not exists.';

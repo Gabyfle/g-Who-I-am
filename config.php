@@ -15,7 +15,7 @@ $Gabyfle = [
     ],
     'database' => [
         'host' => 'localhost',
-        'dbname' => 'greward',
+        'dbname' => 'gabyfle',
         'dbuser' => 'root',
         'dbpass' => ''
     ],

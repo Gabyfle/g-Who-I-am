@@ -60,7 +60,7 @@ class User
      */
     private function exists() :bool
     {
-        $request = $this->db->prepare('SELECT * FROM gabyfle WHERE SteamID = :steamid');
+        $request = $this->db->prepare('SELECT * FROM users WHERE SteamID = :steamid');
         $request->execute([
             'steamid' => $this->id
         ]);
@@ -74,11 +74,12 @@ class User
      */
     private function initUserDatabase() :bool
     {
-        $request = $this->db->prepare('INSERT INTO gabyfle (SteamName, SteamID) VALUES (:steamname, :steamid)');
+        $request = $this->db->prepare('INSERT INTO users (SteamName, SteamID, member_since) VALUES (:steamname, :steamid, :date_now)');
         if (
             $request->execute([
                 'steamname' => SteamAuth::getUserData('personaname'),
-                'steamid' => $this->id
+                'steamid' => $this->id,
+                'date_now' => date('Y-m-d h:i:s', time())
             ])
         ) {
             return true;

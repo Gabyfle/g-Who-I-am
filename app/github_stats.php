@@ -5,7 +5,7 @@
  */
 
 $github_user = "Gabyfle";
-$github_token = "";
+$github_token = "c6d98c98010848f88dcbc4a5047abda0a34012d9";
 
 /**
  * Checking if datas hasn't already been fetched

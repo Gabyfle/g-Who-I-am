@@ -3,7 +3,7 @@
  * Gets steam stats from Steam's API
  * @author Gabriel Santamaria <gaby.santamaria@outlook.fr>
  */
-$steam_api = "";
+$steam_api = "4DEE1F0E42F3A8FD194814AEDDF6BC90";
 $steam_id = "76561198127516196";
 
 /**
