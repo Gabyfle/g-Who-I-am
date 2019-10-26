@@ -32,7 +32,7 @@ class LoginController extends Controller
     {
         try {
             $config = Configuration::getInstance();
-            $url = 'http://gabyfle.local/login';
+            $url = 'http://gabyfle.local:8082/login';
             $this->steam = new SteamAuth($url, $config->get('steam')['api']);
         } catch (\Exception $e) {
             header('Location: /home');

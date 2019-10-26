@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         try {
             $this->config = Configuration::getInstance();
-            $url = 'http://gabyfle.local/login';
+            $url = 'http://gabyfle.local:8082/login';
             $this->steam = new SteamAuth($url, $this->config->get('steam')['api']);
         } catch (\Exception $e) {
             echo 'OOPS ! A <em>fatal</em> error occurred and we canno\'t retreive your site\'s configuration.';

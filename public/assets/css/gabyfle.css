@@ -255,6 +255,16 @@ p{
         font-size: 50px;
     }
 }
+
+/**
+ *  ==. ERROR PAGE .==
+ *  Description : defining some CSS for the error page
+ */
+#error {
+    min-height: 58.4vh;
+    padding-top: 90px;
+}
+
 /**
  *  ==. KEYFRAMES .==
  *  Description : defining some CSS animations and transitions to be used
