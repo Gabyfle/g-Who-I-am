@@ -60,11 +60,7 @@ class HomeController extends Controller
                 'user' => SteamAuth::getUserData()
             ];
             try {
-                if ($user->isAdministrator()) { /* Adding it to the "user" array */
-                    $params['user']['administrator'] = true;
-                } else {
-                    $params['user']['administrator'] = false;
-                }
+                $params['user']['administrator'] = $user->isAdministrator();
                 $params['connected'] = true;
             } catch (\Exception $e) {
                 $params['connected'] = false;
