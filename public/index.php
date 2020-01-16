@@ -7,13 +7,6 @@
  */
 session_start();
 define('DOCUMENT_ROOT', '../');
-define('AVAILABLE_PROVIDERS', [
-    'Discord',
-    'Instagram',
-    'Youtube',
-    'Twitter',
-    'Steam'
-]);
 require_once DOCUMENT_ROOT . 'vendor/autoload.php';
 
 use Gabyfle\Core\Language;
