@@ -1,44 +1,27 @@
 <?php
-/**
- * Gabyfle
- * index.php
- *
- * @author Gabriel Santamaria <gaby.santamaria@outlook.fr>
- */
-session_start();
-define('DOCUMENT_ROOT', '../');
-require_once DOCUMENT_ROOT . 'vendor/autoload.php';
 
-use Gabyfle\Core\Language;
-use Gabyfle\Core\Router;
-use Gabyfle\Core\Configuration;
-use Gabyfle\Core\Database;
+use App\Kernel;
+use Symfony\Component\ErrorHandler\Debug;
+use Symfony\Component\HttpFoundation\Request;
 
-try {
-    $config = Configuration::build(DOCUMENT_ROOT . 'config.php');
-    $database = $config->get('database');
-    Database::build($database['host'], $database['dbname'], $database['dbuser'], $database['dbpass']);
-    Language::build($config->get('site')['language']);
-} catch (Exception $e) {
-    echo 'An error occurred while trying to init the app : ' . $e;
+require dirname(__DIR__).'/config/bootstrap.php';
+
+if ($_SERVER['APP_DEBUG']) {
+    umask(0000);
+
+    Debug::enable();
 }
 
-$router = new Router();
+if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+}
 
-/* Setting up the routes and controllers which will be used */
-$routes = [
-    'home',
-    'login',
-    'logout',
-    'admin'
-];
+if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
+    Request::setTrustedHosts([$trustedHosts]);
+}
 
-$controllers = [
-    'HomeController',
-    'LoginController',
-    'LogoutController',
-    'AdminController'
-];
-
-$router->setRoutes($routes, $controllers);
-$router->handle();
+$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+$request = Request::createFromGlobals();
+$response = $kernel->handle($request);
+$response->send();
+$kernel->terminate($request, $response);

@@ -1,1 +1,0 @@
-{"lastFetched":1572013379,"githubUsername":"Gabyfle","repos":10,"languages":{"PHP":89122,"HTML":33328,"CSS":14346,"JavaScript":11788,"C":27129,"Dockerfile":989,"Makefile":957,"Lua":87587,"Python":7806,"C++":10714}}

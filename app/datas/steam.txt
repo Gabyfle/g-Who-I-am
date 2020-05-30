@@ -1,1 +1,0 @@
-{"lastFetched":1572013375,"steamid":"76561198127516196","totalGames":null,"totalHours":0}
