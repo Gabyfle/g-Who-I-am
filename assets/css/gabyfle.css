@@ -1,0 +1,231 @@
+/*
+ * gabyfle.css
+ * Copyright 2019 Gabriel Santamaria <gaby.santamaria@outlook.fr>
+ *
+ *  CONTENTS TABLE (CTRL + F to directly go to these chapters)
+ *      1. ==. IMPORTS .==
+ *      2. ==. COLORS DEFINITION .==
+ *      3. ==. GENERAL STYLESHEET .==
+ *      4. ==. BOOTSTRAP RESETS .==
+ *      5. ==. HEADER STYLESHEET .==
+ *      6. ==. STATISTICS STYLESHEET .==
+ *      7. ==. ARTICLES STYLESHEET .==
+ *      8. ==. RESPONSIVE .==
+ *      9. ==. KEYFRAMES .==
+ */
+
+/**
+ *  ==. IMPORTS .==
+ *  Description : importing external stylesheets and frameworks
+ */
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300');
+/* Bootstrap v4.3.1 */
+@import url('bootstrap.min.css');
+/* Font Awesome Free 5.8.1 */
+@import url('../fonts/fontawesome/css/all.min.css');
+
+/**
+ *  ==. COLORS DEFINITION .==
+ *  Description : defining colors used in this website
+ */
+:root {
+    /* Backgrounds */
+    --background-navbar: rgb(21, 29, 26);
+    --background-header: rgb(24, 33, 30);
+    --background-body: rgb(24, 33, 30);
+    --background-footer: rgb(21, 29, 26);
+    /* Text colors */
+    --color-header: rgb(255, 255, 255);
+    --color-text: rgb(255, 255, 255);
+    /* Code colors */
+    --color-code-purple: rgb(172, 128, 255);
+    --color-code-yellow: rgb(231, 219, 116);
+    --color-code-red: rgb(249, 36, 114);
+    --color-code-white: rgb(255, 255, 255);
+}
+
+
+/**
+ *  ==. GENERAL STYLESHEET .==
+ *  Description : resetting some basics styles
+ */
+body{
+    background-color: var(--background-body);
+    color: var(--color-text) !important;
+}
+h1, h2, h3, h4, h5, h6{ /* Every title have to be displayed in this font */
+    font-family: 'Inconsolata', monospace;
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+#marge{ /* For tabulations */
+    margin: 1em;
+}
+
+.section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.hide {
+    display: none;
+}
+
+#articles {
+    padding-top: 35px;
+}
+
+/**
+ *  ==. BOOTSTRAP RESETS .==
+ *  Description : resetting Bootstrap components to proper styles, to feet with the design.
+ */
+.jumbotron{
+    background-color: var(--background-header);
+}
+.dropdown-item{
+    font-family: 'Inconsolata', monospace;
+}
+.btn-outline-warning{
+    color: #ffc107 !important;
+}
+.btn-outline-warning:hover{
+    color: #151d1a !important;
+}
+.btn-outline-warning:focus{
+    color: #151d1a !important;
+}
+.btn-outline-warning:active{
+    color: #151d1a !important;
+}
+.btn-outline-info{
+    color: #17a2b8 !important;
+}
+.btn-outline-info:hover{
+    color: #FFFFFF !important;
+}
+.btn-outline-info:focus{
+    color: #FFFFFF !important;
+}
+.btn-outline-info:active{
+    color: #FFFFFF !important;
+}
+
+
+
+/**
+ *  ==. HEADER STYLESHEET .==
+ *  Description : defining stylesheets for the header
+ */
+/* Styling the account-related navigation bar, on top of header */
+#header {
+    padding-top: 8em;
+    text-align: center;
+}
+/**
+ *  ==. STATISTICS STYLESHEET .==
+ *  Description : defining stylesheets for statistics display
+ */
+#stats{
+    background-color: #2d3532;
+    padding: 15px;
+    color: var(--color-code-white);
+    border-radius: 5px;
+}
+#stats p{
+    font-family: 'Inconsolata', monospace;
+}
+#stats div{
+    margin-left: 15px;
+}
+#stats h3{
+    display: inline;
+}
+.stats-text{
+    font-size: 1.75rem;
+}
+.stats-text *{
+    display: inline;
+    font-family: 'Inconsolata', monospace;
+}
+#languages{
+    line-height: 15px;
+    margin: 0px;
+    padding: 0px;
+}
+.number{ /* Every numbers have to be displayed in #ac80ff */
+    display: inline;
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+    color: #ac80ff; 
+}
+#footer-bottom{
+    color: #FFFFFF;
+    background-color: var(--background-footer);
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+#footer-bottom p{
+    font-family: 'Inconsolata', monospace;
+}
+
+
+/**
+ *  ==. RESPONSIVE .==
+ *  Description : defining some CSS media queries, for different devices
+ */
+@media screen and (min-width: 576px) {
+    #big-title{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 576px) {
+    #big-title{
+        font-size: 25px;
+    }
+}
+@media screen and (min-width: 768px) {
+    #big-title{
+        font-size: 40px;
+    }
+}
+@media screen and (min-width: 992px) {
+    #big-title{
+        font-size: 50px;
+    }
+}
+
+/**
+ *  ==. ERROR PAGE .==
+ *  Description : defining some CSS for the error page
+ */
+#error {
+    min-height: 58.4vh;
+    padding-top: 90px;
+}
+
+/**
+ *  ==. KEYFRAMES .==
+ *  Description : defining some CSS animations and transitions to be used
+ */
+@keyframes showing-up {
+    from {
+        -webkit-transform: translate(0px, 0px);
+                transform: translate(0px, 0px);
+    }
+    to {
+      -webkit-transform: translate(0px, -15px);
+              transform: translate(0px, -15px);
+    }
+}
+@keyframes showing-down {
+    from {
+        -webkit-transform: translate(0px, -15px);
+        transform: translate(0px, -15px);
+    }
+    to {
+      -webkit-transform: translate(0px, 0px);
+              transform: translate(0px, 0px);
+    }
+}
