@@ -4,5 +4,6 @@
 
 More fun, less stress
 
-[Blog](https://blog.gabyfle.me) - [Twitter](https://twitter.com/gabyfle)
+<p align="center"><a href="https://blog.gabyfle.me">Blog</a> - <a href="https://twitter.com/gabyfle">Twitter</a></p>
+
 
